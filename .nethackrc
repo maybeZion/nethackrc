@@ -10,7 +10,6 @@ OPTIONS=menu_objsyms,!implicit_uncursed,altmeta
 OPTIONS=disclose:+i +c +o
 OPTIONS=!tombstone,toptenwin
 
-
 SYMBOLS=S_ghost:á
 OPTIONS=boulder:0
 
@@ -38,8 +37,8 @@ OPTIONS=HILITE_STATUS: condition/foodpois/red&inverse/slime/red&inverse
 
 # Conditions: Minor Troubles
 OPTIONS=HILITE_STATUS: condition/stun/yellow
-#OPTIONS=HILITE_STATUS: condition/blind/white&underline/deaf/brown
-#OPTIONS=HILITE_STATUS: condition/conf/orange/hallu/bright-magenta
+OPTIONS=HILITE_STATUS: condition/blind/white&underline/deaf/brown
+OPTIONS=HILITE_STATUS: condition/conf/orange/hallu/bright-magenta
 
 # Conditions: Movement
 OPTIONS=HILITE_STATUS: condition/movement/bright-cyan
@@ -57,13 +56,6 @@ OPTIONS=menucolors
 # Enhance
 MENUCOLOR="^ *[a-z] - +[a-z -]+ +\[(Unskilled|Basic|Skilled|Expert|Master|Grand Master)\]$"=white
 
-# Tin
-MENUCOLOR=" tin"=cyan
-MENUCOLOR="(tin wand|tin opener|tin whistle)"=gray
-
-# Uncursed
-MENUCOLOR="uncursed"=white
-
 # Blessed 
 MENUCOLOR="blessed"=green
 MENUCOLOR="blessed clear potion"=lightcyan
@@ -71,22 +63,6 @@ MENUCOLOR="blessed clear potions"=lightcyan
 MENUCOLOR="blessed potion called water"=lightcyan
 MENUCOLOR="blessed potions called water"=lightcyan
 MENUCOLOR="holy"=lightcyan
-
-# Food
-MENUCOLOR="corpse"=brown
-#MENUCOLOR=" tin"=cyan  ##Need exceptions for tin wand, tin opener, tin whistle
-MENUCOLOR="(meatball|meat ring|meat stick|egg|tripe ration|huge chunk of meat)"=brown
-MENUCOLOR="(food |cram |K-|C-)ration|gunyoki"=brown
-MENUCOLOR="lembas wafer|melon|carrot|tins? .* spinach"=lightgreen
-MENUCOLOR=" oranges?( named.*)?$"=lightgreen
-MENUCOLOR=" pears?( named.*)?$"=lightgreen
-MENUCOLOR=" (apple|banana|kelp|eucalyptus|garlic|wolfsbane)"=lightgreen
-MENUCOLOR=" (slime mold|loadboulder)"=lightgreen
-MENUCOLOR="(tins? of )?(gelatinous cube|acid blob|quivering blob)( corpse)?"=lightgreen
-MENUCOLOR="(tins? of )?(blue|spotted|ochre) jelly( corpse)?"=lightgreen
-MENUCOLOR="(tins? of )?lichen|shrieker|violet fungus|(brown|yellow|green|red) mold( corpse)?"=lightgreen
-MENUCOLOR="egg|pancake|fortune cookie|candy bar|royal jelly|cream pie|candle"=green
-MENUCOLOR="(tin of )?brown pudding|gray ooze( corpse)?"=green
 
 # Cursed 
 MENUCOLOR="cursed"=red
@@ -96,11 +72,28 @@ MENUCOLOR="cursed potion called water"=magenta
 MENUCOLOR="cursed potions called water"=magenta
 MENUCOLOR="unholy"=magenta
 
+# Uncursed
+MENUCOLOR="uncursed"=white
+
+# Food
+MENUCOLOR="corpse"=brown
+MENUCOLOR="(meatball|meat ring|meat stick|egg|tripe ration|chunk of meat)"=brown
+MENUCOLOR="(food |cram |K-|C-)ration|gunyoki"=green
+MENUCOLOR="lembas wafer|melon|carrot|tins? .* spinach"=lightgreen
+MENUCOLOR=" oranges?( named.*)?$"=lightgreen
+MENUCOLOR=" pears?( named.*)?$"=lightgreen
+MENUCOLOR=" (apple|banana|kelp|eucalyptus|garlic|wolfsbane)"=lightgreen
+MENUCOLOR=" (slime mold|loadboulder)"=lightgreen
+MENUCOLOR="pancake|fortune cookie|candy bar|royal jelly|cream pie|candle"=green
+
+# Tin
+MENUCOLOR=" tin"=cyan
+MENUCOLOR="(tin wand|tin opener|tin whistle)"=gray
+
 # Tools and unused items with known enchantments and charges
 MENUCOLOR="\([0-9]:.*\)"=yellow
 MENUCOLOR="\([0-9]:0\)"=brown
 MENUCOLOR="\(-1:0\)"=brown&underline
-#MENUCOLOR="\+[1-9]"=yellow
 MENUCOLOR="-[1-9]"=magenta
 
 # Markers
@@ -273,8 +266,8 @@ AUTOPICKUP_EXCEPTION="> loadstone[^<]*$"
 AUTOPICKUP_EXCEPTION="> rock[^<]*$"
 AUTOPICKUP_EXCEPTION="> flint[^<]*$"
 AUTOPICKUP_EXCEPTION="> glass[^<]*$"
-#AUTOPICKUP_EXCEPTION="< luckstone"
-#AUTOPICKUP_EXCEPTION="< stone called luck"
+AUTOPICKUP_EXCEPTION="< luckstone"
+AUTOPICKUP_EXCEPTION="< stone called luck"
 
 # Messages
 MSGTYPE=stop "You (descend|climb up) the stairs."
@@ -310,6 +303,6 @@ MSGTYPE=stop "You see here a c(hi|o)ckatrice corpse."
 MSGTYPE=stop "You wrest .*"
 MSGTYPE=stop ".*Vorpal Blade.*"
 
-#Hide Messages
+# Hide Messages
 MSGTYPE=hide "You swap places with your .*"
 MSGTYPE=hide "With great effort you move the boulder.""
