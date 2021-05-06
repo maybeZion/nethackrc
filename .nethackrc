@@ -118,10 +118,10 @@ MENUCOLOR=" cursed .*marker.*1:"=red
 MENUCOLOR="\(.*\)"=white&underline
 
 # Blessed items in use
-MENUCOLOR="blessed .* \(.*\)"=lightgreen&underline
+MENUCOLOR="blessed .*\(.*\)"=lightgreen&underline
 
 # Cursed items in use
-MENUCOLOR=" cursed .* \(.*\)"=orange&underline
+MENUCOLOR=" cursed .*\(.*\)"=orange&underline
 
 # Tools and unused items with known enchantments and charges
 MENUCOLOR="\([0-9]:.*\)"=yellow
@@ -209,25 +209,11 @@ AUTOPICKUP_EXCEPTION="> worthless[^<]*$"
 AUTOPICKUP_EXCEPTION="< luckstone"
 AUTOPICKUP_EXCEPTION="< stone called luck"
 
-# Stop on hunger
-MSGTYPE=stop "feel hungry"
-MSGTYPE=stop "feel weak"
-MSGTYPE=stop "the munchies"
-MSGTYPE=stop "needs food, badly!"
-
-# Near-death
-MSGTYPE=stop "You hear the howling of the CwnAnnwn..."
-MSGTYPE=stop ", your life force is running out..."
-MSGTYPE=stop ", all your powers will be lost..."
-MSGTYPE=stop "You hear the wailing of the Banshee..."
-MSGTYPE=stop " is about to die"
-MSGTYPE=stop "you die"
-
-# Messages
+# Notable messages
+MSGTYPE=stop "You .*feel"
 MSGTYPE=stop "You (descend|climb up) the stairs."
 MSGTYPE=stop "Welcome to experience level"
 MSGTYPE=stop "The .* (grabs|swings itself around) you!"
-MSGTYPE=stop "You don't feel very well."
 MSGTYPE=stop "You are turning a little green."
 MSGTYPE=stop "Your limbs are getting oozy."
 MSGTYPE=stop "Your skin begins to peel away."
@@ -241,18 +227,23 @@ MSGTYPE=stop "Your blood is having trouble reaching your brain."
 MSGTYPE=stop "You can no longer breathe."
 MSGTYPE=stop "You're turning blue."
 MSGTYPE=stop "Your consciousness is fading."
-MSGTYPE=stop "You feel deathly sick."
-MSGTYPE=stop "You feel (much|even) worse."
 MSGTYPE=stop "You are turning a little .*"
-MSGTYPE=stop "You feel feverish*"
 MSGTYPE=stop "You fail to cast the spell correctly."
 MSGTYPE=stop "rots away."
 MSGTYPE=stop "You find a*"
-MSGTYPE=stop "You feel more confident in your*skills."
-MSGTYPE=stop "You feel a strange vibration*"
-MSGTYPE=stop "You have a .* feeling for a moment, then it passes."
-MSGTYPE=stop "You sense a faint wave of psychic energy"
-MSGTYPE=stop "You are beginning to feel weak."
+MSGTYPE=stop "psychic energy"
 MSGTYPE=stop "The scroll turns to dust as you pick it up."
 MSGTYPE=stop "You see here a c(hi|o)ckatrice corpse." 
 MSGTYPE=stop "You wrest .*"
+
+# Stop on hunger
+MSGTYPE=stop "the munchies"
+MSGTYPE=stop "needs food, badly!"
+
+# Near-death
+MSGTYPE=stop "You hear the howling of the CwnAnnwn..."
+MSGTYPE=stop ", your life force is running out..."
+MSGTYPE=stop ", all your powers will be lost..."
+MSGTYPE=stop "You hear the wailing of the Banshee..."
+MSGTYPE=stop " is about to die"
+MSGTYPE=stop "you die"
