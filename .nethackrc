@@ -134,7 +134,7 @@ MENUCOLOR="flickering light blue"=bright-cyan&underline
 MENUCOLOR="(lamp .* magic|magic lamp)"=blue&bold
 MENUCOLOR="(lamp .* magic|magic lamp) \((lit|wielded)\)"=blue&underline
 
-# Mark potentially dangerous things (and a kludge for BoH looting prompts)
+# Mark potentially dangerous things (and a kludge foyr BoH looting prompts)
 MENUCOLOR=" holding"=lightmagenta
 MENUCOLOR="Put .* holding"=gray
 MENUCOLOR="Take .* holding"=gray
@@ -159,7 +159,7 @@ MENUCOLOR="[a-zA-Z] - [a-zA-Z ]+ [0-9]\*   [a-z]+ +[0-9]+%"=magenta
 
 # Gems
 MENUCOLOR="worthless"=brown
-MENUCOLOR="(dilithium|diamond|ruby|jacinth|sapphire|opal|emerald|turquoise|citrine|aquamarine|amber|topaz|jet|chrysoberyl|garnet|amethyst|jasper|flourite|jade|obsidian|agate) .* (stone|crystal)"=yellow
+MENUCOLOR="dilithium|diamond|ruby|jacinth|sapphire|(black )?opal|emerald|turquoise|citrine|aquamarine|amber|topaz|jet|chrysoberyl|garnet|amethyst|jasper|flourite|jade|obsidian|agate"=yellow
 
 # Items of interest
 MENUCOLOR="blessed .* unicorn horn"=blue&bold
@@ -210,7 +210,7 @@ AUTOPICKUP_EXCEPTION="< luckstone"
 AUTOPICKUP_EXCEPTION="< stone called luck"
 
 # Notable messages
-MSGTYPE=stop "You .*feel"
+MSGTYPE=stop "You*feel"
 MSGTYPE=stop "You (descend|climb up) the stairs."
 MSGTYPE=stop "Welcome to experience level"
 MSGTYPE=stop "The .* (grabs|swings itself around) you!"
