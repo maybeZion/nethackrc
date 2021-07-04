@@ -9,7 +9,7 @@ OPTIONS=!tombstone,toptenwin
 # Graphics
 
 # uncomment for tty (IBMGraphics requires something like https://github.com/keaston/cp437)
-OPTIONS=IBMGraphics,statuslines:3,force_invmenu,menustyle:partial
+OPTIONS=IBMGraphics,statuslines:3,menustyle:partial
 
 # uncomment for curses (better for large terminals)
 # OPTIONS=windowtype:curses,windowborders:2,perm_invent,align_status:right
@@ -26,14 +26,14 @@ OPTIONS=color,!sparkle,statushilites:10,hitpointbar
 OPTIONS=menu_objsyms,!implicit_uncursed
 OPTIONS=showexp,time,showscore
 OPTIONS=hilite_pet,hilite_pile
-OPTIONS=lit_corridor,dark_room,use_darkgray
+OPTIONS=lit_corridor,dark_room
 OPTIONS=altmeta,showrace
 
 # Symbols
 SYMBOLS=S_boulder:0
 
 # Dungeon features
-SYMBOLS=S_altar:\xEA,S_tree:\xE7,S_grave:\xF1,S_upladder:\xAE,S_dnladder:\xAF
+SYMBOLS=S_altar:\xEA,S_tree:\xE7,S_grave:\xF1,S_sink:\x9C
 
 # Makes magic traps, magic portals, and teleport traps use \x91 for visibility
 SYMBOLS=S_magic_trap:\x91,S_magic_portal:\x91,S_polymorph_trap:\x91
@@ -71,37 +71,38 @@ OPTIONS=HILITE_STATUS: power-max/always/cyan/up/white/down/red
 
 OPTIONS=menucolors
 
-# Enhance
-MENUCOLOR="^ *[a-z] - +[a-z -]+ +\[(Unskilled|Basic|Skilled|Expert|Master|Grand Master)\]$"=white
-
 # Unidentified magic items
 MENUCOLOR="piece of cloth|opera cloak|ornamental cope|tattered cape"=brown
-MENUCOLOR="plumed helmet|etched helmet|crested helmet|visored helmet"=brown
+MENUCOLOR="(plumed|etched|crested|visored) helmet"=brown
 MENUCOLOR="(old|padded|riding|fencing) gloves"=brown
 MENUCOLOR="(mud|buckled|riding|snow|hiking|combat|jungle) boots"=brown
 
 # Blessed 
 MENUCOLOR="blessed"=green
-MENUCOLOR="blessed clear potion"=lightcyan
-MENUCOLOR="(holy|blessed potion called) water"=lightcyan
+MENUCOLOR="blessed.*(clear|of water)|holy"=lightcyan
 
 # Cursed 
 MENUCOLOR="cursed"=red
-MENUCOLOR="cursed clear potion"=magenta
-MENUCOLOR="(unholy|cursed potion called) water"=magenta
+MENUCOLOR="cursed.*(clear|of water)|unholy"=magenta
 
 # Uncursed
 MENUCOLOR="uncursed"=white
 
+# Fruit
+MENUCOLOR="slime mold"=lightgreen
+
 # Food
 MENUCOLOR="corpse"=brown
-MENUCOLOR="lichen"=lightgreen
+MENUCOLOR="lichen corpse"=lightgreen
 MENUCOLOR="meat|tripe|egg"=brown
 MENUCOLOR="(food |cram |K-|C-)ration|gunyoki"=green
 MENUCOLOR="lembas|melon|carrot|spinach"=lightgreen
 MENUCOLOR=" oranges?( named.*)?$"=lightgreen
-MENUCOLOR=" pears?( named.*)?$"=lightgreen
-MENUCOLOR="apple|banana|kelp|eucalyptus|wolfsbane|slime mold|garlic"=lightgreen
+MENUCOLOR=" pears? "=lightgreen
+MENUCOLOR=" oranges? "=yellow&bold
+MENUCOLOR=" apples? "=red
+MENUCOLOR=" bananas? "=yellow
+MENUCOLOR="kelp|eucalyptus|wolfsbane|garlic"=lightgreen
 MENUCOLOR="pancake|fortune cookie|candy bar|royal jelly|cream pie"=green
 MENUCOLOR="tins? of"=cyan
 
@@ -114,27 +115,12 @@ MENUCOLOR="blessed .*marker.*1:"=green
 MENUCOLOR=" cursed .*marker"=orange
 MENUCOLOR=" cursed .*marker.*1:"=red
 
-# Items in use.
-MENUCOLOR="\(.*\)"=white&underline
-
-# Blessed items in use
-MENUCOLOR="blessed .*\(.*\)"=lightgreen&underline
-
-# Cursed items in use
-MENUCOLOR=" cursed .*\(.*\)"=orange&underline
-
-# Tools and unused items with known enchantments and charges
-MENUCOLOR="\([0-9]:.*\)"=yellow
-MENUCOLOR="\(.*:0\)"=brown
-
-# Monster type warning
-MENUCOLOR="flickering light blue"=bright-cyan&underline
 
 # Magic Lamp
 MENUCOLOR="(lamp .* magic|magic lamp)"=blue&bold
-MENUCOLOR="(lamp .* magic|magic lamp) \((lit|wielded)\)"=blue&underline
+MENUCOLOR="(lamp .* magic|magic lamp) \(.*\)"=blue&underline
 
-# Mark potentially dangerous things (and a kludge foyr BoH looting prompts)
+# Mark potentially dangerous things (and a kludge for BoH looting prompts)
 MENUCOLOR=" holding"=lightmagenta
 MENUCOLOR="Put .* holding"=gray
 MENUCOLOR="Take .* holding"=gray
@@ -143,8 +129,8 @@ MENUCOLOR="Do what with your .* holding"=gray
 MENUCOLOR="Do what with the bag .* holding"=gray
 MENUCOLOR="Look inside the .* holding"=gray
 MENUCOLOR="stash one item into the .* holding"=gray
-MENUCOLOR="tricks"=lightmagenta
-MENUCOLOR="cancel"=lightmagenta
+MENUCOLOR="bag .* tricks"=lightmagenta
+MENUCOLOR="wand .* cancel"=lightmagenta
 MENUCOLOR="vanish"=lightmagenta
 
 # Spell failure rates
@@ -159,22 +145,41 @@ MENUCOLOR="[a-zA-Z] - [a-zA-Z ]+ [0-9]\*   [a-z]+ +[0-9]+%"=magenta
 
 # Gems
 MENUCOLOR="worthless"=brown
-MENUCOLOR="dilithium|diamond|ruby|jacinth|sapphire|(black )?opal|emerald|turquoise|citrine|aquamarine|amber|topaz|jet|chrysoberyl|garnet|amethyst|jasper|flourite|jade|obsidian|agate"=yellow
 
 # Items of interest
-MENUCOLOR="blessed .* unicorn horn"=blue&bold
-MENUCOLOR="gray stone"=orange&underline
-MENUCOLOR="(loadstone|stone .* load)"=red
-MENUCOLOR="stone called luck.*"=blue&bold
-MENUCOLOR="luckstone"=blue&bold
+MENUCOLOR="a.* unicorn horn"=blue&bold
+MENUCOLOR="(luckstone|stone .* luck)"=blue&bold
 MENUCOLOR="wand .* wishing"=blue&bold
 MENUCOLOR="scare monster"=blue&bold
+MENUCOLOR="magic marker"=blue&bold
 
 # Invocation items
 MENUCOLOR=" (Bell of Opening\|silver bell\|Candelabrum of Invocation\|candelabrum\|Book of the Dead\|papyrus spellbook)"=magenta
 
 # Money
 MENUCOLOR=" gold piece"=yellow
+
+
+# Items in use (also shop items and some menus)
+MENUCOLOR="\(.*\)"=white&underline
+
+# Blessed items in use
+MENUCOLOR="blessed .*\(.*\)"=lightgreen&underline
+
+# Cursed items in use
+MENUCOLOR=" cursed .*\(.*\)"=orange&underline
+# Fix for colored dip prompt
+MENUCOLOR=" dip "=gray
+
+# Monster type warning
+MENUCOLOR="flickering|gleaming"=bright-cyan&underline
+
+# Tools and unused items with known enchantments and charges
+MENUCOLOR="\([0-9]:.*\)"=yellow
+MENUCOLOR="\(.*:0\)"=brown
+
+# Enhance
+MENUCOLOR="^ *[a-z] - +[a-z -]+ +\[ (Unskilled|Basic|Skilled|Expert|Master|Grand Master)$"=white
 
 ## Autopickup exceptions
 
@@ -210,7 +215,7 @@ AUTOPICKUP_EXCEPTION="< luckstone"
 AUTOPICKUP_EXCEPTION="< stone called luck"
 
 # Notable messages
-MSGTYPE=stop "You*feel"
+MSGTYPE=stop "You.*feel"
 MSGTYPE=stop "You (descend|climb up) the stairs."
 MSGTYPE=stop "Welcome to experience level"
 MSGTYPE=stop "The .* (grabs|swings itself around) you!"
@@ -235,15 +240,18 @@ MSGTYPE=stop "psychic energy"
 MSGTYPE=stop "The scroll turns to dust as you pick it up."
 MSGTYPE=stop "You see here a c(hi|o)ckatrice corpse." 
 MSGTYPE=stop "You wrest .*"
+MSGTYPE=stop "Wait!"
+
+# Exceptions
+MSGTYPE=show "You feel an unseen"
 
 # Stop on hunger
 MSGTYPE=stop "the munchies"
 MSGTYPE=stop "needs food, badly!"
 
 # Near-death
-MSGTYPE=stop "You hear the howling of the CwnAnnwn..."
-MSGTYPE=stop ", your life force is running out..."
-MSGTYPE=stop ", all your powers will be lost..."
-MSGTYPE=stop "You hear the wailing of the Banshee..."
-MSGTYPE=stop " is about to die"
+MSGTYPE=stop "You hear the (howling|wailing) of the"
+MSGTYPE=stop "your life force is running out"
+MSGTYPE=stop "all your powers will be lost"
+MSGTYPE=stop "is about to die"
 MSGTYPE=stop "you die"
